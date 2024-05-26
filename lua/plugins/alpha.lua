@@ -6,7 +6,7 @@ return {
 
   config = function()
     local alpha = require("alpha")
-    local dashboard = require("alpha.themes.startify")
+    local dashboard = require("alpha.themes.dashboard")
 
     dashboard.section.header.val = {
       [[                                                                       ]],
@@ -24,6 +24,12 @@ return {
       [[                                                                       ]],
       [[                                                                       ]],
       [[                                                                       ]],
+    }
+
+    dashboard.section.buttons.val = {
+      dashboard.button("e", "  New file", "<cmd>ene <CR>"),
+      dashboard.button("<leader>ff", "󰈞  Find file"),
+      dashboard.button("<leader>fg", "󰊄  File live grep"),
     }
 
     alpha.setup(dashboard.opts)
