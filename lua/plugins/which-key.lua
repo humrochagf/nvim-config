@@ -17,6 +17,8 @@ return {
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
         d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Code Definition"},
         f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Code Format"},
+        i = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+        j = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostics" },
         r = { "<cmd>lua vim.lsp.buf.references()<cr>", "Code References"},
       },
       d = {
