@@ -4,6 +4,9 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
+-- Line Wrap
+vim.cmd("set nowrap")
+
 -- Show special characters
 vim.cmd [[
   set invlist
