@@ -7,9 +7,6 @@ vim.g.background = "light"
 -- Base initial configs
 require("configs")
 
--- Mappings
-require("mappings")
-
 -- Lazy plugin manager setup
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -26,3 +23,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+
+-- Mappings
+require("mappings")
