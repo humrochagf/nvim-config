@@ -17,6 +17,7 @@ wk.register({
   [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
   ["e"] = { "<cmd>Neotree toggle<CR>", "Neotree Toggle" },
   ["b"] = { "<cmd>Neotree buffers reveal float<CR>", "Neotree Buffers" },
+  ["h"] = { "<cmd>nohlsearch<CR>", "Clear Search highlight" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>confirm q<CR>", "Quit" },
   ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
