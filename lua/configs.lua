@@ -10,6 +10,9 @@ vim.cmd [[
 ]]
 vim.opt.listchars = "tab:|-,trail:.,extends:>,precedes:<"
 
+-- Enable system clipboard
+vim.cmd("set clipboard+=unnamedplus")
+
 -- Spelling
 vim.opt.spelllang = { "en", "pt_br", "fr" }
 
