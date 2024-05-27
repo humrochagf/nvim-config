@@ -48,7 +48,12 @@ wk.register({
   },
   f = {
     name = "File",
-    f = { "<cmd>Telescope find_files<cr>", "Find files" },
-    g = { "<cmd>Telescope live_grep<cr>", "File live grep" },
+    f = { "<cmd>Telescope find_files<cr>", "Find Files" },
+    g = { "<cmd>Telescope live_grep<cr>", "File Live Grep" },
+  },
+  t = {
+    name = "Text",
+    s = { "<cmd>setlocal spell!<cr>", "Toggle Spell Check" },
+    w = { "<cmd>setlocal wrap!<cr>", "Toggle Line Wrap" },
   },
 }, { prefix = "<leader>" })
