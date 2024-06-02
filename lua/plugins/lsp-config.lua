@@ -29,6 +29,9 @@ return {
       lspconfig.tsserver.setup({
         capabilities
       })
+      lspconfig.zls.setup({
+        capabilities
+      })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
     end
