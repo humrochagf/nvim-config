@@ -1,31 +1,32 @@
--- Base tab configs
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+local default_options = {
+  -- tab configs
+  expandtab = true,
+  tabstop = 2,
+  softtabstop = 2,
+  shiftwidth = 2,
 
--- Line Wrap
-vim.cmd("set nowrap")
+  listchars = "tab:|-,trail:.,extends:>,precedes:<", -- Map special characters
+  backup = false, -- creates a backup file
+  swapfile = false, -- disable swapfile
+  clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+  wrap = false, -- display line without breaking into multiple
+  spelllang = { "en", "pt_br", "fr" },
+  number = true, -- numbered lines
+  ignorecase = true, -- ignore case in search patterns
+  smartcase = true,
+}
 
--- Show special characters
+for k, v in pairs(default_options) do
+  vim.opt[k] = v
+end
+
+-- Show invisible characters
 vim.cmd [[
   set invlist
 ]]
-vim.opt.listchars = "tab:|-,trail:.,extends:>,precedes:<"
-
--- Enable system clipboard
-vim.cmd("set clipboard+=unnamedplus")
-
--- Spelling
-vim.opt.spelllang = { "en", "pt_br", "fr" }
-
--- Disable swapfile
-vim.opt.swapfile = false
 
 -- Navigate vim panes better
 vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
 vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
 vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
-
-vim.wo.number = true
