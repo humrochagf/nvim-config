@@ -7,54 +7,48 @@ vim.cmd("nmap U <C-r>")
 -- Which-key Mappings
 local wk = require("which-key")
 
--- Visual
-wk.register({
-  ["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
-}, { mode = "v", prefix = "<leader>" })
+wk.add({
+  { "<leader>;", "<cmd>Alpha<CR>", desc = "Dashboard" },
 
--- Normal
-wk.register({
-  [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
-  ["e"] = { "<cmd>Neotree toggle<CR>", "Neotree Toggle" },
-  ["b"] = { "<cmd>Neotree buffers reveal float<CR>", "Neotree Buffers" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "Clear Search highlight" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>confirm q<CR>", "Quit" },
-  ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
-  c = {
-    name = "Code",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Code Definition" },
-    f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Code Format" },
-    i = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-    j = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostics" },
-    r = { "<cmd>lua vim.lsp.buf.references()<cr>", "Code References" },
-  },
-  d = {
-    name = "Debug",
-    b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
-    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-    C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
-    d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
-    g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
-    i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-    o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-    p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
-    q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
-    r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
-    s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
-    t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-    u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
-    U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
-  },
-  f = {
-    name = "File",
-    f = { "<cmd>Telescope find_files<cr>", "Find Files" },
-    g = { "<cmd>Telescope live_grep<cr>", "File Live Grep" },
-  },
-  t = {
-    name = "Text",
-    s = { "<cmd>setlocal spell!<cr>", "Toggle Spell Check" },
-    w = { "<cmd>setlocal wrap!<cr>", "Toggle Line Wrap" },
-  },
-}, { prefix = "<leader>" })
+  { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
+  { "<leader>q", "<cmd>confirm q<CR>", desc = "Quit" },
+
+  { "<leader>/", "<Plug>(comment_toggle_linewise_current)", desc = "Toggle Comments" },
+  { "<leader>/", "<Plug>(comment_toggle_linewise_visual)", desc = "Toggle Comments", mode = "v" },
+  { "<leader>h", "<cmd>nohlsearch<CR>", desc = "Clear Search highlight" },
+
+  { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Neotree Toggle" },
+  { "<leader>b", "<cmd>Neotree buffers reveal float<CR>", desc = "Neotree Buffers" },
+
+  { "<leader>c", group = "Code" },
+  { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
+  { "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Code Definition" },
+  { "<leader>cf", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Code Format" },
+  { "<leader>ci", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
+  { "<leader>cj", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostics" },
+  { "<leader>cr", "<cmd>lua vim.lsp.buf.references()<cr>", desc = "Code References" },
+
+  { "<leader>d", group = "Debug" },
+  { "<leader>dC", "<cmd>lua require'dap'.run_to_cursor()<cr>", desc = "Run To Cursor" },
+  { "<leader>dU", "<cmd>lua require'dapui'.toggle({reset = true})<cr>", desc = "Toggle UI" },
+  { "<leader>db", "<cmd>lua require'dap'.step_back()<cr>", desc = "Step Back" },
+  { "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", desc = "Continue" },
+  { "<leader>dd", "<cmd>lua require'dap'.disconnect()<cr>", desc = "Disconnect" },
+  { "<leader>dg", "<cmd>lua require'dap'.session()<cr>", desc = "Get Session" },
+  { "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", desc = "Step Into" },
+  { "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", desc = "Step Over" },
+  { "<leader>dp", "<cmd>lua require'dap'.pause()<cr>", desc = "Pause" },
+  { "<leader>dq", "<cmd>lua require'dap'.close()<cr>", desc = "Quit" },
+  { "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", desc = "Toggle Repl" },
+  { "<leader>ds", "<cmd>lua require'dap'.continue()<cr>", desc = "Start" },
+  { "<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle Breakpoint" },
+  { "<leader>du", "<cmd>lua require'dap'.step_out()<cr>", desc = "Step Out" },
+
+  { "<leader>f", group = "File" },
+  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+  { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "File Live Grep" },
+
+  { "<leader>t", group = "Text" },
+  { "<leader>ts", "<cmd>setlocal spell!<cr>", desc = "Toggle Spell Check" },
+  { "<leader>tw", "<cmd>setlocal wrap!<cr>", desc = "Toggle Line Wrap" },
+})
