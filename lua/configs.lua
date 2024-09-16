@@ -12,7 +12,7 @@ local default_options = {
   number = true, -- numbered lines
   ignorecase = true, -- ignore case in search patterns
   smartcase = true, -- case sensitive when Upper Case is present
-  autoindent = true -- indent at the same level of the previous line
+  autoindent = true, -- indent at the same level of the previous line
 }
 
 -- move to other line with left right navigation at the line edges

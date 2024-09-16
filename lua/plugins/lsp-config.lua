@@ -26,7 +26,7 @@ return {
       lspconfig.pyright.setup({
         capabilities
       })
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities
       })
       lspconfig.zls.setup({
