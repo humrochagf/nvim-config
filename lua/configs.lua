@@ -1,3 +1,15 @@
+-- Detect OS
+if vim.fn.exists('g:os') == 0 then
+    local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
+    if is_windows then
+        vim.g.os = "Windows"
+    else
+        local uname_output = vim.fn.system('uname')
+        vim.g.os = string.gsub(uname_output, '\n', '')
+    end
+end
+
+-- Set defaults
 local default_options = {
   expandtab = true, -- tabs are spaces, not tabs
   tabstop = 2, -- an indentation every 2 spaces
@@ -15,7 +27,7 @@ local default_options = {
   autoindent = true, -- indent at the same level of the previous line
 }
 
--- move to other line with left right navigation at the line edges
+-- Move to other line with left right navigation at the line edges
 vim.opt.whichwrap:append "<,>,[,],h,l"
 
 -- Apply default_options
