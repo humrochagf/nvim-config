@@ -33,6 +33,10 @@ return {
         "lua_ls",
         -- Zig
         "zls",
+        -- Rust
+        "rust_analyzer",
+        -- Go
+        "gopls",
         -- Bash
         "bashls",
         -- Toml
@@ -44,6 +48,10 @@ return {
         -- Docker
         "dockerls",
         "docker_compose_language_service",
+        -- Terraform
+        "terraformls",
+        -- Helm
+        "helm_ls",
       },
     }
   },
@@ -108,6 +116,18 @@ return {
         capabilities = capabilities,
       })
 
+      -- Rust
+
+      lspconfig.rust_analyzer.setup({
+        capabilities = capabilities,
+      })
+
+      -- Go
+
+      lspconfig.gopls.setup({
+        capabilities = capabilities,
+      })
+
       -- Bash
 
       lspconfig.bashls.setup({
@@ -139,6 +159,18 @@ return {
       })
 
       lspconfig.docker_compose_language_service.setup({
+        capabilities = capabilities,
+      })
+
+      -- Terraform
+
+      lspconfig.terraformls.setup({
+        capabilities = capabilities,
+      })
+
+      -- Helm
+
+      lspconfig.helm_ls.setup({
         capabilities = capabilities,
       })
 
