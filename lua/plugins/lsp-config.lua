@@ -37,6 +37,8 @@ return {
         "rust_analyzer",
         -- Go
         "gopls",
+        -- Sass
+        "somesass_ls",
         -- Bash
         "bashls",
         -- Toml
@@ -125,6 +127,12 @@ return {
       -- Go
 
       lspconfig.gopls.setup({
+        capabilities = capabilities,
+      })
+
+      -- Sass
+
+      lspconfig.somesass_ls.setup({
         capabilities = capabilities,
       })
 
