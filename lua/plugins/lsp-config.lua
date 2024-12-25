@@ -39,6 +39,8 @@ return {
         "gopls",
         -- Sass
         "somesass_ls",
+        -- HTML
+        "emmet_language_server",
         -- Bash
         "bashls",
         -- Toml
@@ -133,6 +135,12 @@ return {
       -- Sass
 
       lspconfig.somesass_ls.setup({
+        capabilities = capabilities,
+      })
+
+      -- HTML
+
+      lspconfig.emmet_language_server.setup({
         capabilities = capabilities,
       })
 
