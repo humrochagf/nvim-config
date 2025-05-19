@@ -25,7 +25,7 @@ wk.add({
   { "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Code Definition" },
   { "<leader>cf", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Code Format" },
   { "<leader>ci", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics" },
-  { "<leader>cj", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostics" },
+  { "<leader>cj", "<cmd>lua vim.diagnostic.jump({count=1, float=true})<cr>", desc = "Next Diagnostics" },
   { "<leader>cr", "<cmd>lua vim.lsp.buf.references()<cr>", desc = "Code References" },
 
   { "<leader>d", group = "Debug" },
