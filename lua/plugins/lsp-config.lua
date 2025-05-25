@@ -1,7 +1,6 @@
 return {
   {
     "williamboman/mason.nvim",
-    lazy = false,
     config = function()
       require("mason").setup({
         ui = {
@@ -16,7 +15,9 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    lazy = false,
+    dependencies = {
+      "saghen/blink.cmp",
+    },
     opts = {
       auto_install = true,
       ensure_installed = {
@@ -61,9 +62,8 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    lazy = false,
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
       local lspconfig = require("lspconfig")
 
       -- Python
@@ -189,8 +189,6 @@ return {
       lspconfig.helm_ls.setup({
         capabilities = capabilities,
       })
-
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
     end
   }
 }
