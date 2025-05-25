@@ -24,7 +24,6 @@ return {
         "terraform",
         "toml",
         "typescript",
-        "vim",
         "yaml",
         "zig",
       },
