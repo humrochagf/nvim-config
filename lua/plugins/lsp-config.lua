@@ -1,7 +1,6 @@
 return {
   {
     "williamboman/mason.nvim",
-    lazy = false,
     config = function()
       require("mason").setup({
         ui = {
@@ -16,9 +15,9 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    lazy = false,
     opts = {
       auto_install = true,
+      automatic_enable = false,
       ensure_installed = {
         -- Python
         "jinja_lsp",
@@ -61,7 +60,6 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    lazy = false,
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local lspconfig = require("lspconfig")
