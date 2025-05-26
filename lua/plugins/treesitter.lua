@@ -20,6 +20,7 @@ return {
         "lua",
         "markdown",
         "python",
+        "regex",
         "rust",
         "terraform",
         "toml",
