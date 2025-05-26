@@ -1,9 +1,11 @@
 return {
   'numToStr/Comment.nvim',
-  opts = {
-    mappings = {
-      basic = false,
-      extra = false,
-    }
-  }
+  config = function ()
+    require('Comment').setup({
+      mappings = {
+        basic = false,
+        extra = false,
+      },
+    })
+  end
 }
