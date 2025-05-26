@@ -20,6 +20,8 @@ wk.add({
   { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Neotree Toggle" },
   { "<leader>b", "<cmd>Neotree buffers reveal float<CR>", desc = "Neotree Buffers" },
 
+  { "<leader>nd", "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
+
   { "<leader>c", group = "Code" },
   { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
   { "<leader>cd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Code Definition" },
