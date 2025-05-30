@@ -13,8 +13,6 @@ wk.add({
   { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
   { "<leader>q", "<cmd>confirm q<CR>", desc = "Quit" },
 
-  { "<leader>/", "<Plug>(comment_toggle_linewise_current)", desc = "Toggle Comments" },
-  { "<leader>/", "<Plug>(comment_toggle_linewise_visual)", desc = "Toggle Comments", mode = "v" },
   { "<leader>h", "<cmd>nohlsearch<CR>", desc = "Clear Search highlight" },
 
   { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Neotree Toggle" },
