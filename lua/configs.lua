@@ -1,11 +1,14 @@
 -- Detect OS
-if vim.fn.exists('g:os') == 0 then
+if vim.fn.exists("g:os") == 0 then
   local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
   if is_windows then
     vim.g.os = "Windows"
   else
-    local uname_output = vim.fn.system('uname')
-    vim.g.os = string.gsub(uname_output, '\n', '')
+    if vim.fn.system("uname -a"):lower():find "microsoft" then
+      vim.g.os = "Wsl"
+    else
+      vim.g.os, _ = string.gsub(vim.fn.system("uname"), "\n", "")
+    end
   end
 end
 
@@ -41,7 +44,7 @@ vim.cmd [[
 ]]
 
 -- Navigate vim panes better
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
+vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
+vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")

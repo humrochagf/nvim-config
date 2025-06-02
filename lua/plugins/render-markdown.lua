@@ -1,11 +1,11 @@
-if vim.g.os == "Windows" then
+if vim.g.os == "Windows" or vim.g.os == "Wsl" then
   return {
     {
-      'MeanderingProgrammer/render-markdown.nvim',
+      "MeanderingProgrammer/render-markdown.nvim",
       opts = {},
       dependencies = {
-        'nvim-treesitter/nvim-treesitter',
-        'nvim-tree/nvim-web-devicons',
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons",
       },
     },
   }
@@ -13,18 +13,18 @@ else
   return {
     {
       "vhyrro/luarocks.nvim",
-      priority = 1001,   -- this plugin needs to run before anything else
+      priority = 1001, -- this plugin needs to run before anything else
       opts = {
         rocks = { "magick" },
       },
     },
     {
-      'MeanderingProgrammer/render-markdown.nvim',
+      "MeanderingProgrammer/render-markdown.nvim",
       opts = {},
       dependencies = {
-        'nvim-treesitter/nvim-treesitter',
-        'nvim-tree/nvim-web-devicons',
-        '3rd/image.nvim',
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons",
+        "3rd/image.nvim",
       },
       config = function()
         require("image").setup({
