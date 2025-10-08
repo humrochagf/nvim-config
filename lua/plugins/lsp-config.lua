@@ -1,3 +1,57 @@
+local lsp_list = {
+  -- Python
+  'pyright',
+  'ruff',
+  'jinja_lsp',
+
+  -- Javascript / Typescript
+  'eslint',
+  'ts_ls',
+
+  -- JSON
+  'jsonls',
+
+  -- Lua
+  'lua_ls',
+
+  -- Zig
+  'zls',
+
+  -- Rust
+  'rust_analyzer',
+
+  -- Go
+  'gopls',
+
+  -- SASS
+  'somesass_ls',
+
+  -- HTML
+  'emmet_language_server',
+
+  -- Bash
+  'bashls',
+
+  -- TOML
+  'taplo',
+
+  -- YAML
+  'yamlls',
+
+  -- Markdown
+  'marksman',
+
+  -- Docker
+  'dockerls',
+  'docker_compose_language_service',
+
+  -- Terraform
+  'terraformls',
+
+  -- Helm
+  'helm_ls',
+}
+
 return {
   {
     "williamboman/mason.nvim",
@@ -18,60 +72,16 @@ return {
     opts = {
       auto_install = true,
       automatic_enable = false,
-      ensure_installed = {
-        -- Python
-        "jinja_lsp",
-        "pyright",
-        "ruff",
-        -- Javascript / Typescript
-        "eslint",
-        "ts_ls",
-        -- Json
-        "jsonls",
-        -- Lua
-        "lua_ls",
-        -- Zig
-        "zls",
-        -- Rust
-        "rust_analyzer",
-        -- Go
-        "gopls",
-        -- Sass
-        "somesass_ls",
-        -- HTML
-        "emmet_language_server",
-        -- Bash
-        "bashls",
-        -- Toml
-        "taplo",
-        -- Yaml
-        "yamlls",
-        -- Markdown
-        "marksman",
-        -- Docker
-        "dockerls",
-        "docker_compose_language_service",
-        -- Terraform
-        "terraformls",
-        -- Helm
-        "helm_ls",
-      },
+      ensure_installed = lsp_list,
     }
   },
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local lspconfig = require("lspconfig")
 
-      -- Python
+      -- Custom lsp configs
 
-      lspconfig.jinja_lsp.setup({
-        capabilities = capabilities,
-      })
-
-      lspconfig.pyright.setup({
-        capabilities = capabilities,
+      vim.lsp.config('pyright', {
         settings = {
           pyright = {
             -- Using Ruff's import organizer
@@ -86,107 +96,9 @@ return {
         },
       })
 
-      lspconfig.ruff.setup({
-        capabilities = capabilities,
-      })
+      -- Enable lsp
 
-      -- Javascript / Typescript
-
-      lspconfig.eslint.setup({
-        capabilities = capabilities,
-      })
-
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities,
-      })
-
-      -- Json
-
-      lspconfig.jsonls.setup({
-        capabilities = capabilities,
-      })
-
-      -- Lua
-
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
-
-      -- Zig
-
-      lspconfig.zls.setup({
-        capabilities = capabilities,
-      })
-
-      -- Rust
-
-      lspconfig.rust_analyzer.setup({
-        capabilities = capabilities,
-      })
-
-      -- Go
-
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-      })
-
-      -- Sass
-
-      lspconfig.somesass_ls.setup({
-        capabilities = capabilities,
-      })
-
-      -- HTML
-
-      lspconfig.emmet_language_server.setup({
-        capabilities = capabilities,
-      })
-
-      -- Bash
-
-      lspconfig.bashls.setup({
-        capabilities = capabilities,
-      })
-
-      -- Toml
-
-      lspconfig.taplo.setup({
-        capabilities = capabilities,
-      })
-
-      -- Yaml
-
-      lspconfig.yamlls.setup({
-        capabilities = capabilities,
-      })
-
-      -- Markdown
-
-      lspconfig.marksman.setup({
-        capabilities = capabilities,
-      })
-
-      -- Docker
-
-      lspconfig.dockerls.setup({
-        capabilities = capabilities,
-      })
-
-      lspconfig.docker_compose_language_service.setup({
-        capabilities = capabilities,
-      })
-
-      -- Terraform
-
-      lspconfig.terraformls.setup({
-        capabilities = capabilities,
-      })
-
-      -- Helm
-
-      lspconfig.helm_ls.setup({
-        capabilities = capabilities,
-      })
+      vim.lsp.enable(lsp_list)
     end
   }
 }
