@@ -1,8 +1,8 @@
 local lsp_list = {
   -- Python
-  'pyright',
-  'ruff',
   'jinja_lsp',
+  'ruff_lsp',
+  'ty',
 
   -- Javascript / Typescript
   'eslint',
