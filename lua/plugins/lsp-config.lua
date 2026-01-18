@@ -1,7 +1,7 @@
 local lsp_list = {
   -- Python
   'jinja_lsp',
-  'ruff_lsp',
+  'ruff',
   'ty',
 
   -- Javascript / Typescript
@@ -78,23 +78,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-
-      -- Custom lsp configs
-
-      vim.lsp.config('pyright', {
-        settings = {
-          pyright = {
-            -- Using Ruff's import organizer
-            disableOrganizeImports = true,
-          },
-          python = {
-            analysis = {
-              -- Ignore all files for analysis to exclusively use Ruff for linting
-              ignore = { '*' },
-            },
-          },
-        },
-      })
 
       -- Enable lsp
 
