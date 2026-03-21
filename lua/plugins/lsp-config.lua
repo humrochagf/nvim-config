@@ -2,7 +2,7 @@ local lsp_list = {
   -- Python
   'jinja_lsp',
   'ruff',
-  'ty',
+  'zuban',
 
   -- Javascript / Typescript
   'eslint',
