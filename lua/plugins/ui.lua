@@ -228,7 +228,8 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
     opts = {
-      prefix = "<leader>",
+      preset = "modern",
+      sort = { "manual" },
     },
   },
 
