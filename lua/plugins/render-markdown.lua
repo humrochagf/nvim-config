@@ -7,9 +7,9 @@ if vim.g.os == "Windows" or vim.g.os == "Wsl" then
         "nvim-tree/nvim-web-devicons",
       },
       opts = {},
-      config = function ()
+      config = function()
         require("render-markdown").setup({
-            completions = { lsp = { enabled = true } },
+          completions = { lsp = { enabled = true } },
         })
       end
     },
@@ -34,7 +34,7 @@ else
         })
 
         require("render-markdown").setup({
-            completions = { lsp = { enabled = true } },
+          completions = { lsp = { enabled = true } },
         })
       end
     },

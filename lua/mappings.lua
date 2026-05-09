@@ -12,19 +12,31 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
 -- Which-key Mappings
 local wk = require("which-key")
+local harpoon = require("harpoon")
 
 wk.add({
-  { "<leader>;", "<cmd>Alpha<CR>", desc = "Dashboard" },
+  { "<leader>;", "<cmd>Alpha<CR>", desc = "Dashboard", icon = "󰕮" },
 
-  { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
-  { "<leader>q", "<cmd>confirm q<CR>", desc = "Quit" },
+  { "<leader>w", "<cmd>w!<CR>", desc = "Save", icon = "" },
+  { "<leader>q", "<cmd>confirm q<CR>", desc = "Quit", icon = { icon = "", color = "red" } },
 
   { "<leader>h", "<cmd>nohlsearch<CR>", desc = "Clear Search highlight" },
 
   { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Neotree Toggle" },
   { "<leader>b", "<cmd>Neotree buffers reveal float<CR>", desc = "Neotree Buffers" },
 
+  { "<leader>n", group = "Notifications", icon = "󰆈" },
   { "<leader>nd", "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
+
+  { "<leader>h", group = "Harpoon", icon = "󰛢" },
+  { "<leader>ha", function() harpoon:list():add() end, desc = "Harpoon add buffer" },
+  { "<leader>he", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "Harpoon menu" },
+  { "<leader>h1", function() harpoon:list():select(1) end, desc = "Harpoon buffer 1" },
+  { "<leader>h2", function() harpoon:list():select(2) end, desc = "Harpoon buffer 2" },
+  { "<leader>h3", function() harpoon:list():select(3) end, desc = "Harpoon buffer 3" },
+  { "<leader>h4", function() harpoon:list():select(4) end, desc = "Harpoon buffer 4" },
+  { "<leader>hn", function() harpoon:list():next() end, desc = "Harpoon next buffer" },
+  { "<leader>hp", function() harpoon:list():prev() end, desc = "Harpoon prev buffer" },
 
   { "<leader>c", group = "Code" },
   { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
@@ -54,7 +66,7 @@ wk.add({
   { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
   { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "File Live Grep" },
 
-  { "<leader>t", group = "Text" },
+  { "<leader>t", group = "Text", icon = "󰊄" },
   { "<leader>ts", "<cmd>setlocal spell!<cr>", desc = "Toggle Spell Check" },
   { "<leader>tw", "<cmd>setlocal wrap!<cr>", desc = "Toggle Line Wrap" },
 })

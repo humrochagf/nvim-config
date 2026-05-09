@@ -6,7 +6,7 @@ return {
   main = "nvim-treesitter",
   init = function()
     vim.api.nvim_create_autocmd(
-      'FileType',
+      "FileType",
       {
         callback = function()
           -- Enable treesitter highlighting and disable regex syntax
@@ -43,13 +43,13 @@ return {
       "zig",
     }
 
-    local alreadyInstalled = require('nvim-treesitter.config').get_installed()
+    local alreadyInstalled = require("nvim-treesitter.config").get_installed()
 
     local parsersToInstall = vim.iter(ensureInstalled)
-      :filter(function(parser)
-        return not vim.tbl_contains(alreadyInstalled, parser)
-      end)
-      :totable()
-    require('nvim-treesitter').install(parsersToInstall)
+        :filter(function(parser)
+          return not vim.tbl_contains(alreadyInstalled, parser)
+        end)
+        :totable()
+    require("nvim-treesitter").install(parsersToInstall)
   end,
 }

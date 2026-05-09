@@ -78,7 +78,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-
       -- Enable lsp
 
       vim.lsp.enable(lsp_list)

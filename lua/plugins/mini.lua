@@ -1,25 +1,25 @@
 return {
   {
     "echasnovski/mini.ai",
-    config = function ()
+    config = function()
       require("mini.ai").setup()
     end,
   },
   {
     "echasnovski/mini.comment",
-    config = function ()
+    config = function()
       require("mini.comment").setup()
     end,
   },
   {
     "echasnovski/mini.surround",
-    config = function ()
+    config = function()
       require("mini.surround").setup()
     end,
   },
   {
     "echasnovski/mini.operators",
-    config = function ()
+    config = function()
       require("mini.operators").setup()
     end
   }

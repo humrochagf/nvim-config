@@ -221,4 +221,24 @@ return {
       })
     end,
   },
+
+  -- Shortcut helper
+  {
+    "folke/which-key.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
+    opts = {
+      prefix = "<leader>",
+    },
+  },
+
+  -- Easy Navigation
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("harpoon"):setup()
+    end,
+  },
 }
