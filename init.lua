@@ -1,8 +1,21 @@
 -- NeoVim Configuration
 
+-- Detect OS
+if vim.fn.exists("g:os") == 0 then
+  local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
+  if is_windows then
+    vim.g.os = "Windows"
+  else
+    if vim.fn.system("uname -a"):lower():find "microsoft" then
+      vim.g.os = "Wsl"
+    else
+      vim.g.os, _ = string.gsub(vim.fn.system("uname"), "\n", "")
+    end
+  end
+end
+
 -- Set leader key to <space>
 vim.g.mapleader = " "
-vim.g.background = "light"
 
 -- Base initial configs
 require("configs")

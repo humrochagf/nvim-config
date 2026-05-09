@@ -17,13 +17,6 @@ if vim.g.os == "Windows" or vim.g.os == "Wsl" then
 else
   return {
     {
-      "vhyrro/luarocks.nvim",
-      priority = 1001, -- this plugin needs to run before anything else
-      opts = {
-        rocks = { "magick" },
-      },
-    },
-    {
       "MeanderingProgrammer/render-markdown.nvim",
       opts = {},
       dependencies = {
