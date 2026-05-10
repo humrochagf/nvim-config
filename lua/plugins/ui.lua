@@ -259,7 +259,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
     opts = {
-      preset = "modern",
+      preset = "helix",
       sort = { "manual" },
     },
   },

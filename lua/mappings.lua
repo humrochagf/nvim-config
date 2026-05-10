@@ -20,7 +20,7 @@ wk.add({
   { "<leader>w", "<cmd>w!<CR>", desc = "Save", icon = "" },
   { "<leader>q", "<cmd>confirm q<CR>", desc = "Quit", icon = { icon = "", color = "red" } },
 
-  { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Toggle navigation" },
+  { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Toggle navigation", icon = "" },
   { "<leader>b", "<cmd>Neotree buffers reveal float<CR>", desc = "Show Buffers" },
 
   { "<leader>n", group = "Notifications", icon = "󰆈" },
@@ -45,8 +45,8 @@ wk.add({
   { "<leader>cr", "<cmd>lua vim.lsp.buf.references()<cr>", desc = "Code References" },
 
   { "<leader>f", group = "File" },
-  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-  { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "File Live Grep" },
+  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", icon = "" },
+  { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Find Word", icon = "󰱼" },
 
   { "<leader>t", group = "Text", icon = "󰊄" },
   { "<leader>ts", "<cmd>setlocal spell!<cr>", desc = "Toggle Spell Check" },
@@ -68,4 +68,13 @@ wk.add({
   { "<leader>ds", "<cmd>lua require'dap'.continue()<cr>", desc = "Start" },
   { "<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle Breakpoint" },
   { "<leader>du", "<cmd>lua require'dap'.step_out()<cr>", desc = "Step Out" },
+
+  -- UI shortcuts
+  { ",d", "<cmd>Alpha<CR>", desc = "Dashboard", icon = "󰕮" },
+  { ",e", "<cmd>Neotree toggle<CR>", desc = "Toggle navigation", icon = "" },
+  { ",f", "<cmd>Telescope find_files<cr>", desc = "Find File", icon = "" },
+  { ",g", "<cmd>Telescope live_grep<cr>", desc = "Find Word", icon = "󰱼" },
+  { ",h", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "Harpoon", icon = "󰛢" },
+  { ",l", "<cmd>Lazy<cr>", desc = "Lazy", icon = "󰒲" },
+  { ",m", "<cmd>Mason<cr>", desc = "Mason", icon = "󱌣" },
 })
