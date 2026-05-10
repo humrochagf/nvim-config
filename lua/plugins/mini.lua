@@ -22,5 +22,5 @@ return {
     config = function()
       require("mini.operators").setup()
     end
-  }
+  },
 }
