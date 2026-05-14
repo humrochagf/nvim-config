@@ -64,8 +64,6 @@ return {
       dashboard.opts.opts.noautocmd = true
       alpha.setup(dashboard.opts)
 
-      require("alpha").setup(dashboard.opts)
-
       vim.api.nvim_create_autocmd("User", {
         pattern = "LazyVimStarted",
         callback = function()

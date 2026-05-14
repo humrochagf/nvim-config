@@ -1,9 +1,9 @@
 -- Default options
 vim.opt.whichwrap:append "<,>,[,],h,l"                    -- move to other line with left right navigation at the line edges
 vim.opt.expandtab = true                                  -- tabs are spaces, not tabs
-vim.opt.tabstop = 2                                       -- an indentation every 2 spaces
-vim.opt.softtabstop = 2                                   -- let backspace delete indent
-vim.opt.shiftwidth = 2                                    -- use indents of 2 spaces
+vim.opt.tabstop = 4                                       -- an indentation every 4 spaces
+vim.opt.softtabstop = 4                                   -- let backspace delete 4 spaces of indent
+vim.opt.shiftwidth = 4                                    -- use indents of 4 spaces
 vim.opt.listchars = "tab:|-,trail:.,extends:>,precedes:<" -- map special characters
 vim.opt.backup = false                                    -- creates a backup file
 vim.opt.swapfile = false                                  -- disable swapfile
@@ -19,6 +19,24 @@ vim.opt.scrolloff = 8                                     -- keep 8 lines around
 vim.opt.updatetime = 50                                   -- snappy CursorHold
 vim.opt.winborder = "rounded"                             -- global border setting
 vim.opt.fcs = 'eob: '                                     -- remove the ~ chars after the end of buffer
+
+-- Languages that defaults to 2 spaces indentation
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "javascript",
+    "json",
+    "lua",
+    "markdown",
+    "toml",
+    "typescript",
+    "yaml",
+  },
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.shiftwidth = 2
+  end,
+})
 
 -- Show invisible characters
 vim.cmd [[

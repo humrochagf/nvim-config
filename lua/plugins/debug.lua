@@ -2,7 +2,6 @@ return {
   {
     "rcarriga/nvim-dap-ui",
     dependencies = {
-      "nvim-dap",
       "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
       "mfussenegger/nvim-dap-python",

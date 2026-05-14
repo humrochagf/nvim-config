@@ -55,7 +55,7 @@ local lsp_list = {
 return {
   -- Language server installer
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     config = function()
       require("mason").setup({
         ui = {
@@ -72,20 +72,15 @@ return {
 
   -- Language server configuration
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
+    dependencies = {
+        "mason-org/mason.nvim",
+        "neovim/nvim-lspconfig",
+    },
     opts = {
       auto_install = true,
-      automatic_enable = false,
       ensure_installed = lsp_list,
     }
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      -- Enable lsp
-
-      vim.lsp.enable(lsp_list)
-    end
   },
 
   -- Code highlight
